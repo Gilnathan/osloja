@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  text-align: center;
+  min-height: 100vh;
+  width: 100%;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f9fa;
+}
+
+header {
+  color: rgb(0, 0, 0);
+  padding: 20px;
+  width: 100%;
+  text-align: start;
+  top: 0;
+  font-size: 10px;
+}
+.appContainer {
+  width: 100vw;
+  max-width: 1700px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  justify-content: space-around;
+  gap: 20px;
+}
