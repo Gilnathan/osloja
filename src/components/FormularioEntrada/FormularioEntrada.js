@@ -44,10 +44,9 @@ function FormularioEntrada() {
 
   function handRegister(e) {
     
-    cliente.id = TotalOS;
     e.preventDefault();
-    alert(`Ordem de Serviço OS: ${cliente.id} Registrada com Sucesso!`);
-    setClientes([...clientes, cliente]);
+    alert(`Ordem de Serviço OS: ${TotalOS} Registrada com Sucesso!`);
+    setClientes([...clientes, { ...cliente, id: TotalOS }]);
     setTotalOS(TotalOS + 1);
 
   }
@@ -62,9 +61,7 @@ function FormularioEntrada() {
       <form className="formulario" onSubmit={handRegister} >
         <h2> Entrada Rapida de Aparelhos - OS: {TotalOS}  </h2>
         
-        <p> {clientes.map((cliente) =>{
-          
-        } )} </p>
+        <p> {clientes.map((cliente) =>{ } )} </p>
         <div className="formulario_dadosCliente">
           <label> Dados do Cliente </label>
 
@@ -157,6 +154,13 @@ function FormularioEntrada() {
         <p><strong>Tipo de Aparelho:</strong> {cliente.tipo_aparelho}</p>
         <p><strong>Marca:</strong> {cliente.marca}</p>
         <p><strong>Modelo:</strong> {cliente.modelo}</p>
+
+        <button onClick={()=>{
+          const updatedClientes = clientes.filter(c => c.id !== cliente.id);
+          setClientes(updatedClientes);
+          localStorage.setItem("clientes", JSON.stringify(updatedClientes));
+        }}> X </button>
+
         </div>
       })}
     </section>
